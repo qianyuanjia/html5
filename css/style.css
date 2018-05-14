@@ -1,11 +1,12 @@
 body{
-	margin: 0;
-	background: #000;
+	background: #EFEFEF;
 }
 ul{
+	list-style: none;
+}
+*{
 	margin: 0;
 	padding:0;
-	list-style: none;
 }
 a{
 	text-decoration: none;
@@ -17,6 +18,10 @@ a{
 	clear: both;
 }
 .topNav{
+	position: fixed;
+	width: 100%;
+}
+.topNav .wrap{
 	padding: 20px;
 }
 .topNav .logo{
@@ -27,7 +32,7 @@ a{
 }
 .topNav .logo .rs{
 	color: #E6686A;
-	margin-right: 8px;
+	margin-right: 14px;
 }
 .topNav .logo .card{
 	color: #9A9DA2;
@@ -52,3 +57,92 @@ a{
 .topNav .nav li a:hover{
 	border-bottom: 3px solid #E06567;
 }
+
+.bgPic{
+	height: 516px;
+	background: url(../images/rs-cover.jpg) no-repeat;
+	background-size: cover;
+}
+.bgPic .mark{
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.aboutMe{
+	margin: 0 auto;
+	max-width: 940px;
+	background: #fff;
+}
+.aboutMe .about_top{
+	padding: 50px;
+}
+.about_top img{
+	float: left;
+	margin-right: 64px;
+}
+.about_top .detail{
+	float: left;
+	width: 470px;
+}
+.about_top .hello{
+	font-size: 16px;
+	color: #F5E7FF;
+	background: #E6686A;
+	padding: 4px 15px;
+	position: relative;
+}
+.about_top .hello::after{
+	content: '';
+	display: block;
+	border:6px solid #E6686A;
+	width:0;
+	border-bottom-color:transparent;
+	border-right-color:transparent;
+	position: absolute;
+	top: 100%;
+	left: 4px;
+}
+.about_top .myName{
+	font-size: 32px;
+	margin: 36px 0 8px 0;
+}
+.about_top .job{
+	font-weight: normal;
+	font-size: 16px;
+	margin-bottom: 22px;
+}
+.about_top hr{
+	border:none;
+	border: 1px solid #DEDEDE;
+	width: 100%;
+	margin-bottom: 26px;
+}
+.about_top .self *{
+	float: left;
+	padding: 4px 0;
+}
+.about_top .self dt{
+	width: 30%;
+	font-weight: bold;
+}
+.about_top .self dd{
+	width: 70%;
+	color: #9DA0AF;
+}
+.aboutMe .about_bot{
+	clear: both;
+	background: #E6686A;
+	text-align: center;
+}
+.aboutMe .about_bot a{
+	padding: 20px 23px;
+	display: inline-block;
+}
+.about_bot svg{
+	fill: #fff;
+	width: 30px;
+	height: 30px;
+	vertical-align: top;
+}
+
+
