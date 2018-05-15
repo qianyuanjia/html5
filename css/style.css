@@ -136,9 +136,17 @@ a{
 	background: #E6686A;
 	text-align: center;
 }
+.aboutMe .about_bot .wrap{
+	padding: 20px 0;
+}
 .aboutMe .about_bot a{
-	padding: 20px 23px;
+	margin:0 23px;
+	padding: 5px;
 	display: inline-block;
+	border-radius: 50%;
+}
+.aboutMe .about_bot a:hover{
+	background: #D05E60;
 }
 .about_bot svg{
 	fill: #fff;
