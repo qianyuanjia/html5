@@ -11,7 +11,12 @@ ul{
 a{
 	text-decoration: none;
 }
-
+.icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
 .clearfix::after{
 	content: '';
 	display: block;
@@ -20,6 +25,17 @@ a{
 .topNav{
 	position: fixed;
 	width: 100%;
+	transition: all 0.5s;
+	color: #B7B7B7;
+}
+.topNav.sticky{
+	background: #fff;
+	color: #3D4451;
+	box-shadow: 0 0 3px 2px rgba(0,0,0,.1);
+	z-index: 1;
+}
+.topNav.sticky .wrap{
+	padding: 10px 20px;
 }
 .topNav .wrap{
 	padding: 20px;
@@ -41,21 +57,73 @@ a{
 .topNav .nav{
 	float: right;
 }
-.topNav .nav li{
+.topNav .nav>li{
 	float: left;
-	margin:0 18px;
+	padding-left:18px;
+	margin-right: 18px;
+	position: relative;
 }
-.topNav .nav li a{
-	color: #B7B7B7;
+.topNav .nav>li>.submenu{
+	position: absolute;
+	top:100%;
+	right: 0;
+	color: #3D4451;
+	background: #fff;
+	box-shadow: 0 0 5px 2px rgba(0,0,0,0.2);
+	display: none;
+}
+.topNav .nav>li>.submenu>li{
+	white-space: nowrap;
+	padding: 5px 10px;
+}
+.topNav .nav>li>.submenu>li>a{
+	color: inherit;
+}
+.topNav .nav>li>a{
+	color: inherit;
 	font-size: 12px;
 	font-weight: bold;
 	padding: 13px 0 7px 0;
 	display: block;
 	border-bottom: 3px solid transparent;
 	border-top: 3px solid transparent;
+	position: relative;
 }
-.topNav .nav li a:hover{
-	border-bottom: 3px solid #E06567;
+
+.topNav .nav>li:hover>a::after,
+.topNav .nav>li.active>a::after
+{
+	content: '';
+	position: absolute;
+	height: 3px;
+	background: #E06567;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	animation:menuSlide 0.3s;
+	border-radius: 2px;
+}
+.topNav .nav>li:hover>.submenu{
+	display: inline-block;
+	animation: submenuSlide 0.3s;
+}
+@keyframes submenuSlide{
+	from{
+		right: 100%;
+		opacity: 0;
+	}
+	to{
+		right: 0;
+		opacity: 1;
+	}
+}
+@keyframes menuSlide{
+	from{
+		width: 0;
+	}
+	to{
+		width: 100%;
+	}
 }
 
 .bgPic{
@@ -131,6 +199,7 @@ a{
 	width: 70%;
 	color: #9DA0AF;
 }
+
 .aboutMe .about_bot{
 	clear: both;
 	background: #E6686A;
@@ -166,8 +235,11 @@ a{
 	margin-top: 30px;
 	display: inline-block;
 	margin-bottom: 36px;
+	border-radius: 4px;
 }
-
+.download:hover{
+	box-shadow: 0 0 5px 3px #ddd;
+}
 .intro{
 	margin:0 auto;
 	max-width: 940px;
@@ -208,6 +280,7 @@ a{
 	height: 6px;
 	background: #FAE1E1;
 	border-radius: 3px;
+	overflow: hidden;
 }
 .skills .progress,
 .works .progress{
@@ -215,7 +288,9 @@ a{
 	background: #E6686A;
 	border-radius: 3px;
 }
-
+.skills .progress{
+	opacity: 0;
+}
 .outer{
 	text-align: center;
 }
@@ -259,6 +334,7 @@ a{
 	max-width: 940px;
 	margin:0 auto;
 	margin-top: 26px;
+	padding-bottom: 100px;
 }
 .Img .leftImg{
 	float: left;
@@ -269,4 +345,35 @@ a{
 .Img .rightImg img{
 	display: block;
 	margin-bottom: 27px;
+}
+
+.slide_up_ani{
+	animation: slideup 1s;
+}
+.skills.slide_up_ani .progress{
+	animation: probar 0.6s 0.5s;
+	animation-fill-mode: forwards;
+}
+@keyframes probar{
+	from{
+		transform: translateX(-100%);
+		opacity: 1;
+	}
+	to{
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes slideup{
+	from{
+		transform: translateY(300px);
+		opacity: 0;
+	}
+	to{
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+.hide{
+	opacity: 0;
 }
